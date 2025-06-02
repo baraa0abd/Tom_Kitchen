@@ -34,8 +34,7 @@ fun HighTensionCard() {
         modifier = Modifier
             .fillMaxSize()
             .background(
-                color = Color(0x80035484),
-                shape = MaterialTheme.shapes.medium
+                color = Color(0x80035484)
             )
     ) {
         ContentGround()
