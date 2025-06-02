@@ -16,7 +16,7 @@ import androidx.compose.ui.unit.dp
 fun ContentGround() {
     Box(
         modifier = Modifier
-            .size(400.dp, 610.dp)
+            .size(420.dp, 610.dp)
             .absoluteOffset(y = 202.dp)
             .background(
                 color = Color(0xFFEEF4F6),
@@ -28,6 +28,9 @@ fun ContentGround() {
     ){
         FoodTitle()
         Description()
+        Details()
+        Lowerscreen()
+        
     }
 }
 
