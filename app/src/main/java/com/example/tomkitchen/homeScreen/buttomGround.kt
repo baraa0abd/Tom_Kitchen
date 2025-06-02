@@ -27,6 +27,7 @@ fun ContentGround() {
             )
     ){
         FoodTitle()
+        Description()
     }
 }
 
