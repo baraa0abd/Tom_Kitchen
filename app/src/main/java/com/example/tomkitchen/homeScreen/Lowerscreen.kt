@@ -38,7 +38,7 @@ fun Lowerscreen() {
         modifier = Modifier
             .width(360.dp) // Adjusted to fit content and offset from main screen
             .height(300.dp) // Adjusted height to accommodate all elements
-            .absoluteOffset(x = 0.dp, y = 342.dp) // Position relative to the main screen
+            .absoluteOffset(x = 16.dp, y = 342.dp) // Position relative to the main screen
     ) {
         Column(
             modifier = Modifier

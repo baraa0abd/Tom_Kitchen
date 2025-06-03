@@ -63,7 +63,7 @@ fun DetailItem(iconRes: Int, value: String, label: String) {
         Text(
             text = label,
             style = TextStyle(
-                fontSize = 14.sp,
+                fontSize = 12.sp,
                 color = Color.Gray
             )
         )
@@ -124,7 +124,7 @@ fun Details() {
     Column(
         modifier = Modifier
             .fillMaxWidth()
-            .offset(10.dp, 190.dp), // Details section fills the width of its parent
+            .offset(16.dp, 190.dp), // Details section fills the width of its parent
         verticalArrangement = Arrangement.spacedBy(8.dp) // Example gap between Details title and cards row
     ) {
         DetailsTextRow() // The "Details" title

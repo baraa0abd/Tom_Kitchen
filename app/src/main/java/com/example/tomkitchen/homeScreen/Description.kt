@@ -23,8 +23,10 @@ fun Description() {
             .padding(end = 16.dp) // Add right padding to prevent text from touching screen edge
     ) {
         Text(
-            text = "Pasta cooked with a charger cable and sprinkled with questionable cheese. " +
-                    "Make sure to unplug it before eating (or not, you decide).",
+            text = "Pasta cooked with a charger cable" +
+                    " and sprinkled with questionable" +
+                    " cheese.Make sure to unplug it before " +
+                    "eating (or not, you decide).",
             style = TextStyle(
                 fontFamily = FontFamily.Default, // Replace with your IBM Plex Sans Arabic font
                 fontWeight = FontWeight.Medium, // 500 weight
@@ -33,7 +35,6 @@ fun Description() {
                 letterSpacing = 0.5.sp,
                 color = Color.Black.copy(alpha = 0.87f)
             ),
-            modifier = Modifier.fillMaxWidth()
         )
     }
 }

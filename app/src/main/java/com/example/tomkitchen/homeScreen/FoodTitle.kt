@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.absoluteOffset
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -75,7 +76,7 @@ fun FoodTitle() {
             .absoluteOffset(x = 16.dp, y = 32.dp) // Position of the entire FoodTitle block
     ) {
         Column(
-            modifier = Modifier.fillMaxSize(), // Column fills the Box
+            modifier = Modifier.size(328.dp,60.dp), // Column fills the Box
             verticalArrangement = Arrangement.spacedBy(12.dp) // 12.dp gap between stacked items
         ) {
             // 1. Row for "Electric Tom pasta" and Heart Icon
@@ -108,22 +109,6 @@ fun FoodTitle() {
 
             // 2. The "5 cheeses" tag
             CheeseTag()
-
-            // 3. Description Text
-            // Removed the problematic absoluteOffset and adjusted padding
-            Text(
-                text = "Pasta cooked with a charger cable and sprinkled with questionable cheese. " +
-                        "Make sure to unplug it before eating (or not, you decide).",
-                style = TextStyle(
-                    fontWeight = FontWeight.Medium,
-                    fontSize = 14.sp,
-                    lineHeight = 20.sp,
-                    letterSpacing = 0.5.sp,
-                    color = Color(0xFF121212).copy(alpha = 0.60f)
-                ),
-                modifier = Modifier
-                    .fillMaxWidth()
-            )
+            }
         }
     }
-}
