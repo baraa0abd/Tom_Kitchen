@@ -1,14 +1,9 @@
 package com.example.tomkitchen.homeScreen
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.absoluteOffset
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
@@ -17,19 +12,14 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.tomkitchen.R
@@ -132,21 +122,12 @@ fun Details() {
     // This 'Details' composable will now simply stack its sub-components
     // It should not have its own absoluteOffset if placed in ContentGround's stacking Column.
     Column(
-        modifier = Modifier.fillMaxWidth()
-            .offset(10.dp,190.dp), // Details section fills the width of its parent
+        modifier = Modifier
+            .fillMaxWidth()
+            .offset(10.dp, 190.dp), // Details section fills the width of its parent
         verticalArrangement = Arrangement.spacedBy(8.dp) // Example gap between Details title and cards row
     ) {
         DetailsTextRow() // The "Details" title
         DetailsCardsRow() // The row of three detail cards
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun DetailsPreview() {
-    MaterialTheme { // Use MaterialTheme for preview if your components use it
-        Box(modifier = Modifier.size(400.dp, 200.dp)) {
-            Details()
-        }
     }
 }

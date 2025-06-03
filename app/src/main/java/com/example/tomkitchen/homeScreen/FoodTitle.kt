@@ -127,13 +127,3 @@ fun FoodTitle() {
         }
     }
 }
-
-@Preview(showBackground = true)
-@Composable
-fun FoodTitlePreview() {
-    MaterialTheme {
-        Box(modifier = Modifier.size(400.dp, 200.dp)) {
-            FoodTitle()
-        }
-    }
-}
