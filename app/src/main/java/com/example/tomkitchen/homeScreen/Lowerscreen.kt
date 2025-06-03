@@ -86,8 +86,7 @@ fun Lowerscreen() {
 fun StepRow(number: Int, text: String) {
     Row(
         modifier = Modifier
-            .fillMaxWidth() // Row takes full width of its parent Column
-            .height(36.dp), // Fixed height of the row based on number circle
+            .size(328.dp,39.dp) ,// Row takes full width of its parent Column ,, // Fixed height of the row based on number circle
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(10.dp) // Gap between number circle and text field
     ) {
