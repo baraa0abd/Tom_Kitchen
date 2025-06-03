@@ -25,7 +25,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -33,84 +32,107 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.tomkitchen.R
 
+// Re-using CheeseTag and assuming Description is a composable, or implementing its details directly.
+// For clarity, let's include the Description text details directly here.
+
+@Composable
+fun CheeseTag() {
+    Row(
+        modifier = Modifier
+            .background(
+                color = Color(0xFFD0E5F0),
+                shape = RoundedCornerShape(8.dp)
+            )
+            .size(width = 91.dp, height = 30.dp)
+            .padding(horizontal = 8.dp, vertical = 4.dp),
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.spacedBy(4.dp)
+    ) {
+        Image(
+            painter = painterResource(id = R.drawable.img_4),
+            contentDescription = "Cheese Icon",
+            modifier = Modifier.size(16.dp),
+            // tint = Color(0xFF03578A)
+        )
+        Text(
+            text = "5 cheeses",
+            style = TextStyle(
+                fontSize = 12.sp,
+                fontWeight = FontWeight.Medium,
+                color = Color(0xFF03578A)
+            )
+        )
+    }
+}
+
+
 @Composable
 fun FoodTitle() {
-    Column(
+    // Overall container for FoodTitle, defining its width and height
+    Box(
         modifier = Modifier
-            .absoluteOffset(x = 16.dp, y = 32.dp)  // left: 16px, top: 32px
-            .width(328.dp)                         // width: 328
-            .height(62.dp)                         // height: 62
+            .size(328.dp, 142.dp) // width: 328, height: 142
+            .absoluteOffset(x = 16.dp, y = 32.dp) // Position of the entire FoodTitle block
     ) {
-        // Title row with favorite icon
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceBetween,  // justify-content: space-between
-            verticalAlignment = Alignment.CenterVertically
+        Column(
+            modifier = Modifier.fillMaxSize(), // Column fills the Box
+            verticalArrangement = Arrangement.spacedBy(12.dp) // 12.dp gap between stacked items
         ) {
-            Text(
-                text = "Electric Tom pasta",
-                style = MaterialTheme.typography.titleLarge.copy(
-                    fontWeight = FontWeight.Medium,
-                    color = Color(0xFF1F1F1E).copy(alpha = 0.87f),
-                    fontSize = 20.sp,
-                    lineHeight = 16.sp,
-                    letterSpacing = 0.5.sp
-                ),
-                modifier = Modifier.width(178.dp)
-            )
-
-            Icon(
-                imageVector = Icons.Default.Favorite,
-                contentDescription = "Favorite",
-                tint = Color(0xFF1E88E5),
-                modifier = Modifier.size(24.dp)
-            )
-        }
-
-        // Cheese tag
-        Box(
-            modifier = Modifier
-                .padding(top = 8.dp)
-                .width(91.dp)
-                .height(30.dp)
-                .background(
-                    color = Color(0xFFD0E5F0),
-                    shape = RoundedCornerShape(8.dp)
-                )
-                .padding(
-                    top = 4.dp,
-                    bottom = 4.dp,
-                    start = 8.dp,
-                    end = 8.dp
-                )
-        ) {
+            // 1. Row for "Electric Tom pasta" and Heart Icon
             Row(
-                modifier = Modifier.fillMaxSize(),
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.spacedBy(4.dp)
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically
             ) {
-                Image(
-                    painter = painterResource(id = R.drawable.img_4),
-                    contentDescription = "Cheese Icon",
-                    modifier = Modifier.size(16.dp)
-                )
                 Text(
-                    text = "5 cheeses",
+                    text = "Electric Tom pasta",
                     style = TextStyle(
-                        fontSize = 12.sp,
+                        fontSize = 20.sp,
                         fontWeight = FontWeight.Medium,
-                        color = Color.Black
-                    )
+                        lineHeight = 16.sp,
+                        letterSpacing = 0.5.sp,
+                        color = Color(0xFF1F1F1E).copy(alpha = 0.87f)
+                    ),
+                    textAlign = TextAlign.Start, // Explicitly start aligned
+                    modifier = Modifier
+                        .width(178.dp) // Fixed width for the text
+                        .height(20.dp) // Fixed height for the text
+                )
+                Icon(
+                    imageVector = Icons.Default.Favorite,
+                    contentDescription = "Favorite",
+                    tint = Color(0xFF1E88E5),
+                    modifier = Modifier.size(24.dp)
                 )
             }
+
+            // 2. The "5 cheeses" tag
+            CheeseTag()
+
+            // 3. Description Text
+            // Removed the problematic absoluteOffset and adjusted padding
+            Text(
+                text = "Pasta cooked with a charger cable and sprinkled with questionable cheese. " +
+                        "Make sure to unplug it before eating (or not, you decide).",
+                style = TextStyle(
+                    fontWeight = FontWeight.Medium,
+                    fontSize = 14.sp,
+                    lineHeight = 20.sp,
+                    letterSpacing = 0.5.sp,
+                    color = Color(0xFF121212).copy(alpha = 0.60f)
+                ),
+                modifier = Modifier
+                    .fillMaxWidth()
+            )
         }
     }
 }
+
 @Preview(showBackground = true)
 @Composable
 fun FoodTitlePreview() {
     MaterialTheme {
-        Box(modifier = Modifier.size(400.dp, 150.dp)) {
+        Box(modifier = Modifier.size(400.dp, 200.dp)) {
             FoodTitle()
         }
     }
