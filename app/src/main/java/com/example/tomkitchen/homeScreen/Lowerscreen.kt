@@ -72,6 +72,10 @@ fun Lowerscreen() {
                 StepRow(number = 3, text = "Wait for the spark to ignite.")
                 // Step 4: Serve with an insulating glove.
                 StepRow(number = 4, text = "Serve with an an insulating glove.")
+
+                StepRow(number = 5, text = "Serve with an an insulating glove.")
+                StepRow(number = 6, text = "Serve with an an insulating glove.")
+                StepRow(number = 7, text = "Serve with an an insulating glove.")
             }
 
             // "Add to cart" button
