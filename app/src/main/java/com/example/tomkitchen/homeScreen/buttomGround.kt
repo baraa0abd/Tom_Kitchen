@@ -20,7 +20,7 @@ fun ContentGround() {
     Box(
         modifier = Modifier
 
-            .size(420.dp, 610.dp)
+            .size(420.dp, 810.dp)
             .absoluteOffset(y = 190.dp)
             .background(
                 color = Color(0xFFEEF4F6),

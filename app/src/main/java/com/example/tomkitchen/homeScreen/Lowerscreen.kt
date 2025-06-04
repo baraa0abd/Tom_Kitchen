@@ -25,6 +25,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -64,9 +65,7 @@ fun Lowerscreen() {
                 modifier = Modifier.fillMaxWidth(),
                 verticalArrangement = Arrangement.spacedBy(8.dp) // 8px gap between step rows
             ) {
-                // Step 1: Put the pasta in a toaster.
                 StepRow(number = 1, text = "Put the pasta in a toaster.")
-                // Step 2: Pour battery juice over it.
                 StepRow(number = 2, text = "Pour battery juice over it.")
                 // Step 3: Wait for the spark to ignite.
                 StepRow(number = 3, text = "Wait for the spark to ignite.")
@@ -88,27 +87,8 @@ fun StepRow(number: Int, text: String) {
         modifier = Modifier
             .size(328.dp,39.dp) ,// Row takes full width of its parent Column ,, // Fixed height of the row based on number circle
         verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.spacedBy(10.dp) // Gap between number circle and text field
+        horizontalArrangement = Arrangement.spacedBy(-17.dp) // Gap between number circle and text field
     ) {
-        // Step Number Circle
-        Box(
-            modifier = Modifier
-                .size(36.dp) // 36x36px
-                .background(Color.White, CircleShape) // Radius: 100px (CircleShape)
-                .border(1.dp, Color(0xFFD0E5F0), CircleShape), // Border: 1px, #D0E5F0
-            contentAlignment = Alignment.Center
-        ) {
-            Text(
-                text = number.toString(),
-                style = TextStyle(
-                    fontSize = 16.sp,
-                    fontWeight = FontWeight.Medium,
-                    color = Color.Black // Assuming black text for the number
-                )
-            )
-        }
-
-        // Step Text Field
         Box(
             modifier = Modifier
                 .width(308.dp) // Fixed width: 308px
@@ -136,6 +116,28 @@ fun StepRow(number: Int, text: String) {
                 overflow = TextOverflow.Ellipsis
             )
         }
+        // Step Number Circle
+        Box(
+            modifier = Modifier
+                .size(36.dp) // 36x36px
+                .background(Color.White, CircleShape) // Radius: 100px (CircleShape)
+                .border(1.dp, Color(0xFFD0E5F0), CircleShape), // Border: 1px, #D0E5F0
+            contentAlignment = Alignment.Center
+        ) {
+            Text(
+                text = number.toString(),
+                style = TextStyle(
+                    fontSize = 16.sp,
+                    fontWeight = FontWeight.Medium,
+                    color = Color.Blue // Assuming black text for the number
+                )
+            )
+
+
+        }
+
+        // Step Text Field
+
     }
 }
 
@@ -171,7 +173,8 @@ fun AddToCartButton() {
                 Text(
                     text = "5 cheeses",
                     color = Color.White.copy(alpha = 0.6f),
-                    fontSize = 12.sp
+                    fontSize = 12.sp,
+                    textDecoration = TextDecoration.LineThrough
                 )
             }
         }
