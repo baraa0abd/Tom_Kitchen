@@ -64,7 +64,7 @@ fun CheeseTag() {
 fun FoodItemDetails() { // Renamed 'content' to be more descriptive
     Column(
         modifier = Modifier
-            .width(328.dp) // Overall width of the content block
+            .fillMaxWidth() // Overall width of the content block
             .padding(16.dp), // Padding around the content block
         verticalArrangement = Arrangement.spacedBy(8.dp) // Space between title_row, cheese_tag, description
     ) {
