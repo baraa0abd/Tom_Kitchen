@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.absoluteOffset
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -119,6 +120,7 @@ fun StepRow(number: Int, text: String) {
         // Step Number Circle
         Box(
             modifier = Modifier
+                .offset(-310.dp)
                 .size(36.dp) // 36x36px
                 .background(Color.White, CircleShape) // Radius: 100px (CircleShape)
                 .border(1.dp, Color(0xFFD0E5F0), CircleShape), // Border: 1px, #D0E5F0
@@ -129,7 +131,7 @@ fun StepRow(number: Int, text: String) {
                 style = TextStyle(
                     fontSize = 16.sp,
                     fontWeight = FontWeight.Medium,
-                    color = Color.Blue // Assuming black text for the number
+                    color = Color(0xFF035587)// Assuming black text for the number
                 )
             )
 
