@@ -1,6 +1,7 @@
 package com.example.tomkitchen.homeScreen
 
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -19,7 +20,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -38,66 +41,87 @@ fun HighTensionCard() {
     ) {
         ContentGround()
         SubGround()
+        Box(
+            modifier = Modifier
+                .size(180.dp, 64.dp) // Outer Box size
+            // contentAlignment = Alignment.Center // Example: if you want to center the Column
+        ) {
+            Column(
+                // If this Column is meant to be positioned absolutely within the Box:
+                modifier = Modifier
+                    .absoluteOffset(x = 16.dp, y = 80.dp),
+                horizontalAlignment = Alignment.Start // Example
+            ) {
+                Row(
+                    // The commented out CSS: width: 130; height: 24; gap: 8px;
+                    modifier = Modifier
+                        // .width(130.dp) // If a fixed width for this Row is desired
+                        .height(24.dp),
+                    horizontalArrangement = Arrangement.spacedBy(8.dp), // For 'gap: 8px' between Text and Image
+                    verticalAlignment = Alignment.CenterVertically
+                ) {
+                    Image(
+                        painter = painterResource(id = R.drawable.img_2), // Ensure R.drawable.img_2 exists
+                        contentDescription = "High Tension Icon",
+                        modifier = Modifier.size(24.dp) // Icon size matches commented height for Row
+                    )
+                    // Text "High tension"
+                    // The commented out Column (width: 98; height: 16;) might imply text constraints
+                    Text(
+                        text = "High tension",
+                        style = TextStyle(
+                            // fontFamily = IbmPlexSansArabicFamily, // Uncomment for custom font
+                            fontFamily = FontFamily.SansSerif,     // Placeholder
+                            fontWeight = FontWeight.Medium,        // font-weight: 500
+                            fontSize = 16.sp,                      // font-size: 16px
+                            lineHeight = 16.sp, // line-height: 16px
+                            letterSpacing = 0.5.sp,                // letter-spacing: 0.5px
+                            textAlign = TextAlign.Center,          // text-align: center
+                            color = Color(0xDEFFFFFF)              // background: #FFFFFFDE (White with ~87% opacity)
+                        )
+                        // modifier = Modifier.width(98.dp) // If fixed width for text is needed
+                    )
 
-
-
+                    // Image Icon
+                }
+            }
+        }
         Column(
             modifier = Modifier
-                .absoluteOffset(x = 16.dp, y = 80.dp) // Sets left: 16px and top: 80px
-                .size(width = 170.dp, height = 64.dp), // Sets width: 150 and height: 64
-            verticalArrangement = Arrangement.spacedBy(16.dp) // Sets gap: 16px between children
+                .absoluteOffset(x = 16.dp, y = 118.dp), // Positions the entire Column
+            horizontalAlignment = Alignment.Start
         ) {
             Row(
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.spacedBy(8.dp)
+                // This Row will contain both the Image and the Text
+                modifier = Modifier
+                    // .width(150.dp) // Uncomment and adjust if you want to constrain the overall width
+                    .height(24.dp),
+                horizontalArrangement = Arrangement.spacedBy(8.dp), // Space between Icon and Text
+                verticalAlignment = Alignment.CenterVertically
             ) {
-                Icon(
-                    painter = painterResource(id = R.drawable.img_2),
-                    contentDescription = "High Tension Icon",
-                    tint = Color.White,
-                    modifier = Modifier.size(24.dp)
-                )
-                Text(
-                    text = "High tension",
-                    style = TextStyle(
-                        fontSize = 16.sp,
-                        fontWeight = FontWeight.Medium,
-                        lineHeight = 16.sp,
-                        letterSpacing = 0.5.sp
-                    ),
-                    color = Color.White.copy(alpha = 0.87f),
-                    modifier = Modifier
-                        .width(98.dp)
-                        .height(16.dp)
-                )
-            }
-
-            Row(
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.spacedBy(8.dp)
-            ) {
-                Icon(
-                    painter = painterResource(id = R.drawable.img_1),
+                // Image Icon First
+                Image(
+                    painter = painterResource(id = R.drawable.img_1), // Replace with your actual icon resource
                     contentDescription = "Shocking Foods Icon",
-                    tint = Color.White,
-                    modifier = Modifier.size(24.dp)
+                    modifier = Modifier.size(24.dp) // Icon size
                 )
+
+                // Text "Shocking foods" Second
                 Text(
                     text = "Shocking foods",
                     style = TextStyle(
+                        fontFamily = FontFamily.SansSerif,    // Placeholder for IBM Plex Sans Arabic
+                        fontWeight = FontWeight.Medium,       // Corresponds to font-weight: 500
                         fontSize = 16.sp,
-                        fontWeight = FontWeight.Medium,
-                        lineHeight = 16.sp,
-                        letterSpacing = 0.5.sp
-                    ),
-                    color = Color.White,
-                    maxLines = 1,
-                    overflow = TextOverflow.Ellipsis
+                        lineHeight = 16.sp,                   // Or adjust for better vertical centering with icon
+                        letterSpacing = 0.5.sp,
+                        textAlign = TextAlign.Start,          // Text aligns to its start
+                        color = Color(0xDEFFFFFF)             // White with ~87% opacity
+                    )
+                    // modifier = Modifier.weight(1f) // Uncomment if Row has fixed width and text should fill remaining space
                 )
             }
         }
-
-
     }
 
 }
