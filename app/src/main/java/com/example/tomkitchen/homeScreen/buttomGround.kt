@@ -1,9 +1,11 @@
 package com.example.tomkitchen.homeScreen
 
+import android.telecom.Call
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.absoluteOffset
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.runtime.Composable
@@ -11,6 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.tomkitchen.R
 
 @Composable
 fun ContentGround() {
@@ -29,7 +32,10 @@ fun ContentGround() {
     ){
         FoodItemDetails()
         Description()
-        Details()
+        DetailsSection(
+            modifier = Modifier
+                .offset(y = 166.dp)
+        )
         Lowerscreen()
         
     }
