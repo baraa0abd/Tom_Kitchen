@@ -93,7 +93,7 @@ fun StepRow(number: Int, text: String) {
         Box(
             modifier = Modifier
                 .width(308.dp) // Fixed width: 308px
-                .height(32.dp) // Fixed height: 32px
+                .height(37.dp) // Fixed height: 32px
                 .background(
                     color = Color.White, // Background #FFFFFF
                     shape = RoundedCornerShape(topEnd = 12.dp, bottomEnd = 12.dp) // Top-right 12px, Bottom-right 12px
