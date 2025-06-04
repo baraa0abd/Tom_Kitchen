@@ -68,14 +68,8 @@ fun Lowerscreen() {
             ) {
                 StepRow(number = 1, text = "Put the pasta in a toaster.")
                 StepRow(number = 2, text = "Pour battery juice over it.")
-                // Step 3: Wait for the spark to ignite.
                 StepRow(number = 3, text = "Wait for the spark to ignite.")
-                // Step 4: Serve with an insulating glove.
                 StepRow(number = 4, text = "Serve with an an insulating glove.")
-
-                StepRow(number = 5, text = "Serve with an an insulating glove.")
-                StepRow(number = 6, text = "Serve with an an insulating glove.")
-                StepRow(number = 7, text = "Serve with an an insulating glove.")
             }
 
             // "Add to cart" button
@@ -90,7 +84,7 @@ fun Lowerscreen() {
 fun StepRow(number: Int, text: String) {
     Row(
         modifier = Modifier
-            .size(328.dp,39.dp) ,// Row takes full width of its parent Column ,, // Fixed height of the row based on number circle
+            .size(360.dp,39.dp) ,// Row takes full width of its parent Column ,, // Fixed height of the row based on number circle
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(-17.dp) // Gap between number circle and text field
     ) {

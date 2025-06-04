@@ -16,7 +16,7 @@ import com.example.tomkitchen.R
 fun SubGround() {
     Box(
         modifier = Modifier
-            .absoluteOffset(x = 148.19.dp, y = 58.dp) // Corresponds to left: 148px and top: 58px
+            .absoluteOffset(x = 180.dp, y = 40.dp) // Corresponds to left: 148px and top: 58px
             .size(width = 187.61422729492188.dp, height = 168.dp) // Corresponds to width: 188 and height: 168
     ) {
         Image(

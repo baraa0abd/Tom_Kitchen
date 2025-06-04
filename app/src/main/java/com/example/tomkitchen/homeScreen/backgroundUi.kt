@@ -12,6 +12,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -43,8 +45,8 @@ fun HighTensionCard() {
         SubGround()
         Box(
             modifier = Modifier
-                .size(180.dp, 64.dp) // Outer Box size
-            // contentAlignment = Alignment.Center // Example: if you want to center the Column
+                .size(180.dp, 64.dp)
+        // .verticalScroll(rememberScrollState())
         ) {
             Column(
                 // If this Column is meant to be positioned absolutely within the Box:
