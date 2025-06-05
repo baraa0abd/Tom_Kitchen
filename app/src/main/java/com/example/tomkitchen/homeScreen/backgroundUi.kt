@@ -7,6 +7,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.absoluteOffset
 import androidx.compose.foundation.layout.fillMaxSize
@@ -14,6 +15,9 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.rememberLazyGridState
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
@@ -40,109 +44,108 @@ import com.example.tomkitchen.ui.theme.TomKitchenTheme
 
 @Composable
 fun HighTensionCard() {
-    Box(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(
-                color = Color(0x80035484)
+    val scrollState = rememberLazyGridState()
 
-            )
-
+    LazyVerticalGrid(
+        columns = GridCells.Fixed(1), // Single column for full-width items
+        state = scrollState,
+        modifier = Modifier.fillMaxSize(),
+        contentPadding = PaddingValues(0.dp) // Remove padding to match your original layout
     ) {
-        Box(
-            modifier = Modifier
-                .width(360.75.dp)
-                .height(414.21.dp)
-                .offset(x = (-95).dp, y = (0).dp)
-        ){
-            Image(
-                painter = painterResource(id = R.drawable.img_8),
-                contentDescription = "Background Image",
-                modifier = Modifier.fillMaxSize()
-            )
-        }
-        ContentGround()
-        SubGround()
-        Box(
-            modifier = Modifier
-                .size(180.dp, 64.dp)
-        ) {
-            Column(
+        item {
+            // Your original HighTensionCard content exactly as is
+            Box(
                 modifier = Modifier
-                    .absoluteOffset(x = 16.dp, y = 80.dp),
-                horizontalAlignment = Alignment.Start // Example
+                    .fillMaxSize()
+                    .background(Color(0x80035484))
             ) {
-                Row(
-                    // The commented out CSS: width: 130; height: 24; gap: 8px;
+                Box(
                     modifier = Modifier
-                        // .width(130.dp) // If a fixed width for this Row is desired
-                        .height(24.dp),
-                    horizontalArrangement = Arrangement.spacedBy(4.dp), // For 'gap: 8px' between Text and Image
-                    verticalAlignment = Alignment.CenterVertically
+                        .width(360.75.dp)
+                        .height(414.21.dp)
+                        .offset(x = (-95).dp, y = (0).dp)
                 ) {
                     Image(
-                        painter = painterResource(id = R.drawable.img_2), // Ensure R.drawable.img_2 exists
-                        contentDescription = "High Tension Icon",
-                        modifier = Modifier.size(24.dp) // Icon size matches commented height for Row
+                        painter = painterResource(id = R.drawable.img_8),
+                        contentDescription = "Background Image",
+                        modifier = Modifier.fillMaxSize()
                     )
-                    // Text "High tension"
-                    // The commented out Column (width: 98; height: 16;) might imply text constraints
-                    Text(
-                        text = "High tension",
-                        style = TextStyle(
-                            // fontFamily = IbmPlexSansArabicFamily, // Uncomment for custom font
-                            fontFamily = FontFamily.SansSerif,     // Placeholder
-                            fontWeight = FontWeight.Medium,        // font-weight: 500
-                            fontSize = 16.sp,                      // font-size: 16px
-                            lineHeight = 16.sp, // line-height: 16px
-                            letterSpacing = 0.5.sp,                // letter-spacing: 0.5px
-                            textAlign = TextAlign.Center,          // text-align: center
-                            color = Color(0xDEFFFFFF)              // background: #FFFFFFDE (White with ~87% opacity)
+                }
+                ContentGround()
+                SubGround()
+                Box(
+                    modifier = Modifier
+                        .size(180.dp, 64.dp)
+                ) {
+                    Column(
+                        modifier = Modifier
+                            .absoluteOffset(x = 16.dp, y = 80.dp),
+                        horizontalAlignment = Alignment.Start
+                    ) {
+                        Row(
+                            modifier = Modifier
+                                .height(24.dp),
+                            horizontalArrangement = Arrangement.spacedBy(4.dp),
+                            verticalAlignment = Alignment.CenterVertically
+                        ) {
+                            Image(
+                                painter = painterResource(id = R.drawable.img_2),
+                                contentDescription = "High Tension Icon",
+                                modifier = Modifier.size(24.dp)
+                            )
+                            Text(
+                                text = "High tension",
+                                style = TextStyle(
+                                    fontFamily = FontFamily.SansSerif,
+                                    fontWeight = FontWeight.Medium,
+                                    fontSize = 16.sp,
+                                    lineHeight = 16.sp,
+                                    letterSpacing = 0.5.sp,
+                                    textAlign = TextAlign.Center,
+                                    color = Color(0xDEFFFFFF)
+                                )
+                            )
+                        }
+                    }
+                }
+                Column(
+                    modifier = Modifier
+                        .absoluteOffset(x = 16.dp, y = 118.dp),
+                    horizontalAlignment = Alignment.Start
+                ) {
+                    Row(
+                        modifier = Modifier
+                            .height(24.dp),
+                        horizontalArrangement = Arrangement.spacedBy(8.dp),
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Image(
+                            painter = painterResource(id = R.drawable.img_1),
+                            contentDescription = "Shocking Foods Icon",
+                            modifier = Modifier.size(24.dp)
                         )
-                        // modifier = Modifier.width(98.dp) // If fixed width for text is needed
-                    )
-
-                    // Image Icon
+                        Text(
+                            text = "Shocking foods",
+                            style = TextStyle(
+                                fontFamily = FontFamily.SansSerif,
+                                fontWeight = FontWeight.Medium,
+                                fontSize = 16.sp,
+                                lineHeight = 16.sp,
+                                letterSpacing = 0.5.sp,
+                                textAlign = TextAlign.Start,
+                                color = Color(0xDEFFFFFF)
+                            )
+                        )
+                    }
                 }
             }
         }
-        Column(
-            modifier = Modifier
-                .absoluteOffset(x = 16.dp, y = 118.dp), // Positions the entire Column
-            horizontalAlignment = Alignment.Start
-        ) {
-            Row(
-                // This Row will contain both the Image and the Text
-                modifier = Modifier
-                    .height(24.dp),
-                horizontalArrangement = Arrangement.spacedBy(8.dp), // Space between Icon and Text
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                // Image Icon First
-                Image(
-                    painter = painterResource(id = R.drawable.img_1), // Replace with your actual icon resource
-                    contentDescription = "Shocking Foods Icon",
-                    modifier = Modifier.size(24.dp) // Icon size
-                )
 
-                // Text "Shocking foods" Second
-                Text(
-                    text = "Shocking foods",
-                    style = TextStyle(
-                        fontFamily = FontFamily.SansSerif,    // Placeholder for IBM Plex Sans Arabic
-                        fontWeight = FontWeight.Medium,       // Corresponds to font-weight: 500
-                        fontSize = 16.sp,
-                        lineHeight = 16.sp,                   // Or adjust for better vertical centering with icon
-                        letterSpacing = 0.5.sp,
-                        textAlign = TextAlign.Start,          // Text aligns to its start
-                        color = Color(0xDEFFFFFF)             // White with ~87% opacity
-                    )
-                    // modifier = Modifier.weight(1f) // Uncomment if Row has fixed width and text should fill remaining space
-                )
-            }
+        // Add more items if needed while preserving your exact layout
+        item {
+            // Any additional content you want to scroll to
         }
     }
-
 }
 
 
