@@ -65,7 +65,7 @@ fun HighTensionCard() {
                     modifier = Modifier
                         // .width(130.dp) // If a fixed width for this Row is desired
                         .height(24.dp),
-                    horizontalArrangement = Arrangement.spacedBy(8.dp), // For 'gap: 8px' between Text and Image
+                    horizontalArrangement = Arrangement.spacedBy(4.dp), // For 'gap: 8px' between Text and Image
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Image(

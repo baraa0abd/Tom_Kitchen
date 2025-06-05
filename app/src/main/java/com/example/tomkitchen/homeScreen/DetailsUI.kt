@@ -33,7 +33,7 @@ import com.example.tomkitchen.R // Make sure this import is correct
 fun DetailItem(iconRes: Int, value: String, label: String, modifier: Modifier = Modifier) {
     Column(
         modifier = modifier
-            .width(104.dp) // As per your layout attempt for a card
+            .width(118.dp) // As per your layout attempt for a card
             .height(109.dp) // As per your layout attempt for a card
             .background(
                 color = Color(0xFFD0E5F0), // Background from your image/code
