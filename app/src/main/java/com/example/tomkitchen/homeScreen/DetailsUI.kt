@@ -55,7 +55,7 @@ fun DetailItem(iconRes: Int, value: String, label: String, modifier: Modifier = 
             style = TextStyle(
                 fontWeight = FontWeight.Medium, // As per your text style for "1000 V"
                 fontSize = 20.sp,           // As per your text style for "1000 V"
-                color = Color(0xFF1F1F1E)   // A suitable dark color for the value
+                color = Color(0x99121212)   // A suitable dark color for the value
             ),
             textAlign = TextAlign.Center
         )
@@ -67,7 +67,7 @@ fun DetailItem(iconRes: Int, value: String, label: String, modifier: Modifier = 
                 fontSize = 12.sp,                 // As per your text style for "Temperature"
                 lineHeight = 12.sp,               // As per your text style for "Temperature"
                 letterSpacing = 0.5.sp,           // As per your text style for "Temperature"
-                color = Color(0xFF121212).copy(alpha = 0.37f) // As per your text style for "Temperature"
+                color = Color(0x99121212).copy(alpha = 0.37f) // As per your text style for "Temperature"
             ),
             textAlign = TextAlign.Center
         )

@@ -38,7 +38,7 @@ fun Lowerscreen() {
     // The main container for this section, positioned absolutely
     Box(
         modifier = Modifier
-            .width(360.dp) // Adjusted to fit content and offset from main screen
+            .width(400.dp) // Adjusted to fit content and offset from main screen
             .height(300.dp) // Adjusted height to accommodate all elements
             .absoluteOffset(x = 16.dp, y = 342.dp) // Position relative to the main screen
     ) {
@@ -70,6 +70,9 @@ fun Lowerscreen() {
                 StepRow(number = 2, text = "Pour battery juice over it.")
                 StepRow(number = 3, text = "Wait for the spark to ignite.")
                 StepRow(number = 4, text = "Serve with an an insulating glove.")
+                StepRow(number = 5, text = "Serve with an an insulating glove.")
+                StepRow(number = 6, text = "Serve with an an insulating glove.")
+                StepRow(number = 7, text = "Serve with an an insulating glove.")
             }
 
             // "Add to cart" button
@@ -84,7 +87,7 @@ fun Lowerscreen() {
 fun StepRow(number: Int, text: String) {
     Row(
         modifier = Modifier
-            .size(360.dp,39.dp) ,// Row takes full width of its parent Column ,, // Fixed height of the row based on number circle
+            .size(450.dp,39.dp) ,// Row takes full width of its parent Column ,, // Fixed height of the row based on number circle
         verticalAlignment = Alignment.CenterVertically,
         horizontalArrangement = Arrangement.spacedBy(-17.dp) // Gap between number circle and text field
     ) {
