@@ -42,15 +42,6 @@ import com.example.tomkitchen.ui.theme.TomKitchenTheme
 fun HighTensionCard() {
     Box(
         modifier = Modifier
-            .size(width = 384.75.dp, height = 414.21.dp)
-            .offset(x = (-205).dp, y = (-40).dp)
-            .background(
-                color = Color(0x33035484),
-                shape = RoundedCornerShape(0.dp)
-            )
-    )
-    Box(
-        modifier = Modifier
             .fillMaxSize()
             .background(
                 color = Color(0x80035484)
