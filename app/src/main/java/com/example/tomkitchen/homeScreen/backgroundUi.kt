@@ -2,6 +2,7 @@ package com.example.tomkitchen.homeScreen
 
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.ScrollState
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -10,9 +11,11 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.absoluteOffset
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
@@ -32,24 +35,36 @@ import androidx.compose.ui.unit.sp
 import com.example.tomkitchen.R
 import com.example.tomkitchen.ui.theme.TomKitchenTheme
 
+
+
+
 @Composable
 fun HighTensionCard() {
+    Box(
+        modifier = Modifier
+            .size(width = 384.75.dp, height = 414.21.dp)
+            .offset(x = (-205).dp, y = (-40).dp)
+            .background(
+                color = Color(0x33035484),
+                shape = RoundedCornerShape(0.dp)
+            )
+    )
     Box(
         modifier = Modifier
             .fillMaxSize()
             .background(
                 color = Color(0x80035484)
+
             )
+
     ) {
         ContentGround()
         SubGround()
         Box(
             modifier = Modifier
                 .size(180.dp, 64.dp)
-        // .verticalScroll(rememberScrollState())
         ) {
             Column(
-                // If this Column is meant to be positioned absolutely within the Box:
                 modifier = Modifier
                     .absoluteOffset(x = 16.dp, y = 80.dp),
                 horizontalAlignment = Alignment.Start // Example
@@ -96,7 +111,6 @@ fun HighTensionCard() {
             Row(
                 // This Row will contain both the Image and the Text
                 modifier = Modifier
-                    // .width(150.dp) // Uncomment and adjust if you want to constrain the overall width
                     .height(24.dp),
                 horizontalArrangement = Arrangement.spacedBy(8.dp), // Space between Icon and Text
                 verticalAlignment = Alignment.CenterVertically
