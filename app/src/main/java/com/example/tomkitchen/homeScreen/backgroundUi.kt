@@ -51,9 +51,9 @@ fun HighTensionCard() {
     ) {
         Box(
             modifier = Modifier
-                .width(384.75.dp)
+                .width(360.75.dp)
                 .height(414.21.dp)
-                .offset(x = (-95).dp, y = (-40).dp)
+                .offset(x = (-95).dp, y = (0).dp)
         ){
             Image(
                 painter = painterResource(id = R.drawable.img_8),
